@@ -1,0 +1,11 @@
+#alert-box{
+    position: fixed;
+    width: 100%;
+}
+#alert-box .alert-message{
+    text-align: center;
+    margin: 2% 25%;
+    background-color: #F6FFED;
+    padding: 18px;
+    border: 1px solid;
+}
