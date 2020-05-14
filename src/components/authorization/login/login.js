@@ -1,7 +1,9 @@
 import React from 'react'
+import './login.css'
 import { Form, Input, Button, Checkbox } from 'antd';
 import { withRouter } from 'react-router-dom';
-import './login.css'
+import { connect } from 'react-redux'
+import { loginRequest } from '../../../actions/loginAction'
 
 const layout = {
   labelCol: {
@@ -19,7 +21,9 @@ const tailLayout = {
 };
 
 const Login = (props) => {
+
   const onFinish = values => {
+    props.loginRequest({email: values.email, password: values.password})
     console.log('Success:', values);
   };
 
@@ -79,4 +83,9 @@ const Login = (props) => {
     </div>
   );
 };
-export default withRouter(Login)
+
+const mapDispatchToProps = {
+  loginRequest
+ };
+ 
+ export default connect(null, mapDispatchToProps)(withRouter(Login))

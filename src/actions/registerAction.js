@@ -9,13 +9,20 @@ export const registerRequest = data => {
       axios
         .post(`${API_URL}user/register`, data)
         .then(res => {
+          console.log("response is then",res)
           dispatch(stopLoading())
-          dispatch(alertMessage("You have successfully registered. Please login to continue","success"))
-          history.push('login')
+          if(res.data.successMessage){
+            dispatch(alertMessage(res.data.successMessage,"success"))
+            history.push('login')
+          }
+          else{
+            dispatch(alertMessage(res.data.message,"error"))
+          }
         })
         .catch(err => {
+          console.log("response is catch",err)
           dispatch(stopLoading());
-          dispatch(alertMessage((err.response && err.response.data) ? err.response.data.errorMsg: "", "error"))
+          dispatch(alertMessage(err.message,"error"))
         });
     };
   };
