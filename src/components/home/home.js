@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logoutRequest } from '../../actions/loginAction'
+import { logoutRequest } from '../../actions/loginAction';
+import Chat from '../chat/chat'
 
 const Home = (props) => {
 return(
     <div>
-        <h1>This is your Home page</h1>
-        <button onClick={() => props.logoutRequest()}>Logout</button>
+        {/* <button onClick={() => props.logoutRequest()}>Logout</button> */}
+        <Chat />
     </div>
 )
 }
