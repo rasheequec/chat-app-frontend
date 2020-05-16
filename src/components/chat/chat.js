@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Col, Divider } from 'antd';
 import ChatList from './chatList';
+import MesssageList from './messageList';
 import './chat.css'
 
 const style = { background: '#F5F6FA', padding: '8px 0' };
@@ -18,10 +19,12 @@ const Chat = (props) => {
       </Col>
     </Row>
     <Row style={{height: "75vh"}}>
-        <Col span={8} style={{backgroundColor: '#F5F6FA', padding: '1.5%'}}>
+        <Col span={8} style={{backgroundColor: '#F5F6FA', padding: '1.5%', height:"inherit"}}>
             <ChatList />
         </Col>
-        <Col span={16} style={style}></Col>
+        <Col span={16} style={{backgroundColor: '#F5F6FA', padding: '1.5%', height:"inherit"}}>
+            <MesssageList />
+        </Col>
     </Row>
     </div>
     )

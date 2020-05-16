@@ -25,7 +25,7 @@ const ChatList = (props) => {
          <Col span={20}>
          <Row>
                  <Col span={20}>
-                 <h5 className="username">Rasheeque C</h5>
+                 <h5 className="username">Rasheeque</h5>
                  </Col>
                  <Col span={4} className="time">
                  12:20
@@ -42,6 +42,86 @@ const ChatList = (props) => {
          </Col>
         </Row>
         </span>
+        <span className="userlist">
+        <Row>
+         <Col span={4}>
+         <Avatar size={42} icon={<UserOutlined />} />
+         </Col>
+         <Col span={20}>
+         <Row>
+                 <Col span={20}>
+                 <h5 className="username">John Smith</h5>
+                 </Col>
+                 <Col span={4} className="time">
+                 12:20
+                 </Col>
+             </Row>
+             <Row>
+                 <Col span={20}>
+                 <p className="lastmessage">my message is here.</p>
+                 </Col>
+                 <Col span={4} className="message-icon-col">
+                 {/* <span className="message-icon">22</span> */}
+                 </Col>
+             </Row>
+         </Col>
+        </Row>
+        </span>
+
+        <span className="userlist">
+        <Row>
+         <Col span={4}>
+         <Avatar size={42} icon={<UserOutlined />} />
+         </Col>
+         <Col span={20}>
+         <Row>
+                 <Col span={20}>
+                 <h5 className="username">Andrew Symonds</h5>
+                 </Col>
+                 <Col span={4} className="time">
+                 12:20
+                 </Col>
+             </Row>
+             <Row>
+                 <Col span={20}>
+                 <p className="lastmessage">my message is here.</p>
+                 </Col>
+                 <Col span={4} className="message-icon-col">
+                 <span className="message-icon">18</span>
+                 </Col>
+             </Row>
+         </Col>
+        </Row>
+        </span>
+
+        <span className="userlist">
+        <Row>
+         <Col span={4}>
+         <Avatar size={42} icon={<UserOutlined />} />
+         </Col>
+         <Col span={20}>
+         <Row>
+                 <Col span={20}>
+                 <h5 className="username">Beckham</h5>
+                 </Col>
+                 <Col span={4} className="time">
+                 1:00
+                 </Col>
+             </Row>
+             <Row>
+                 <Col span={20}>
+                 <p className="lastmessage">my message is here.</p>
+                 </Col>
+                 <Col span={4} className="message-icon-col">
+                 {/* <span className="message-icon">22</span> */}
+                 </Col>
+             </Row>
+         </Col>
+        </Row>
+        </span>
+
+
+
     </div>
         </div>
     )

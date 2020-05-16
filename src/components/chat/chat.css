@@ -2,6 +2,7 @@
     background-color: white;
     height: 100%;
     border-radius: 25px;
+    overflow-x: auto;
 }
 #chatList .search-input{
     border-radius: 50px;
@@ -39,4 +40,34 @@
 #chatList .message-icon-col{
     text-align: center;
     margin-top: -2%;
+}
+
+
+
+#messageList{
+    background-color: white;
+    height: 100%;
+    border-radius: 25px;
+    overflow-x: auto;
+}
+#messageList .leftmessage{
+    background-color: #455DC7;
+    border-radius: 0px 18px 18px 18px;
+    color: #fafafa;
+    padding: 1.5%;
+    display: inline-block;
+    float: left;
+    max-width: 80%;
+    margin: 6% 4%;
+    /* margin-right: auto; */
+}
+#messageList .rightmessage{
+    background-color: #455DC7;
+    border-radius: 18px 0px 18px 18px;
+    color: #fafafa;
+    padding: 1.5%;
+    display: inline-block;
+    float: right;
+    max-width: 80%;
+    margin: 6% 4%;
 }
