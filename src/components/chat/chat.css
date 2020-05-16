@@ -71,3 +71,34 @@
     max-width: 80%;
     margin: 6% 4%;
 }
+
+
+#message-header{
+    background-color: white;
+    height: 100%;
+    border-radius: 10px;
+}
+#message-header .messagehead{
+    font-size: 1.2em;
+    padding: 2% 4%;
+    margin: 0;
+}
+#message-header .icon{
+    margin: 11%;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
+
+#chat-header{
+    background-color: white;
+    height: 100%;
+    border-radius: 10px;
+}
+#chat-header .chathead{
+    font-size: 0.9em;
+    margin: 0;
+}
+#chat-header .chatsub{
+    font-size: 0.8em;
+}
