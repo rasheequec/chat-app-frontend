@@ -46,7 +46,7 @@
 
 #messageList{
     background-color: white;
-    height: 100%;
+    height: 68vh;
     border-radius: 25px;
     overflow-x: auto;
 }
@@ -70,6 +70,10 @@
     float: right;
     max-width: 80%;
     margin: 6% 4%;
+}
+.message-field{
+    border-radius: 25px;
+    margin-top: 2%;
 }
 
 

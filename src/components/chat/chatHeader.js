@@ -6,10 +6,10 @@ const ChatHeader = (props) => {
     return(
         <div id="chat-header">
             <Row>
-                <Col span={4}>
-                <Avatar style={{padding:'2%'}} size={32} icon={<UserOutlined />} />
+                <Col span={4} style={{padding:'2%'}}>
+                <Avatar size={32} icon={<UserOutlined />} />
                 </Col>
-                <Col span={20}>
+                <Col span={20} style={{padding:"1.5%"}}>
                     <Row>
                     <h5 className="chathead">My Name</h5>
                     </Row>

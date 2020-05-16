@@ -1,8 +1,10 @@
 import React from "react"
 import { Row, Col } from "antd"
+import MessageField from "./messageField"
 
 const MessageList = (props) => {
     return(
+    <React.Fragment>
         <div id="messageList">
             <p className="leftmessage">Hi, Are you there ? </p><br/><br/>
             <p className="rightmessage">Hey bro, Iam here andrews. Hope you doing well. </p>
@@ -12,6 +14,8 @@ const MessageList = (props) => {
             <p className="rightmessage">Hey bro, Iam here andrews. Hope you doing well. Ahdf ia sissssada sdfsfsfsikad adsd sfs. </p>
             <p className="leftmessage">HLorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" </p><br/><br/>
         </div>
+        <MessageField />
+    </React.Fragment>
     )
 }
 
