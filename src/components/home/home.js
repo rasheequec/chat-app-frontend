@@ -6,7 +6,7 @@ import Chat from '../chat/chat'
 const Home = (props) => {
 return(
     <div>
-        {/* <button onClick={() => props.logoutRequest()}>Logout</button> */}
+        <button onClick={() => props.logoutRequest()}>Logout</button>
         <Chat />
     </div>
 )

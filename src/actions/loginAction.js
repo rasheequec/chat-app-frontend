@@ -1,9 +1,10 @@
 import axios from "axios"
-import { API_URL } from "../utils/constants"
+import { API_URL, SOCKET_URL } from "../utils/constants"
 import { startLoading, stopLoading, alertMessage } from "./commonAction"
 import { history } from "../utils/history"
 import { actionType } from "./types"
 import { USER_TOKEN, USER_ID } from '../utils/constants'
+import io from "socket.io-client";
 
 axios.defaults.headers = {
   'Content-Type': 'application/json',
@@ -18,6 +19,8 @@ export const loginRequest = data => {
         .then(res => {
           dispatch(stopLoading())
           if(res.data.token){
+            const socket = io(SOCKET_URL);
+            res.data.socket = socket;
             dispatch(loginSuccess(res.data))
             localStorage.setItem(USER_TOKEN, res.data.token)
             localStorage.setItem(USER_ID, res.data.id)
