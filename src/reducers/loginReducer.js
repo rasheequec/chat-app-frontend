@@ -6,7 +6,6 @@ const login = (state = initialState, action) => {
       case actionType.LOGIN_SUCCESS:
         return {...action.payload}
       case actionType.USER_LOGOUT:
-        state.socket.disconnect()
         return {}
       default:
         return state

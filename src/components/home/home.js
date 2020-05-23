@@ -4,16 +4,26 @@ import { logoutRequest } from '../../actions/loginAction';
 import Chat from '../chat/chat'
 
 const Home = (props) => {
+
+const logoutHandle = () => {
+  props.socket.disconnect()
+  props.logoutRequest()
+}
 return(
     <div>
-        <button onClick={() => props.logoutRequest()}>Logout</button>
+        <button onClick={logoutHandle}>Logout</button>
         <Chat />
     </div>
 )
 }
 
+const mapStateToProps = state => {
+    return {
+      socket: state.login.socket
+    }
+  }
 const mapDispatchToProps = {
     logoutRequest
    };
    
-   export default connect(null, mapDispatchToProps)(Home)
+   export default connect(mapStateToProps, mapDispatchToProps)(Home)
