@@ -5,16 +5,14 @@ import { history } from "../utils/history"
 import { actionType } from "./types"
 import { USER_TOKEN, USER_ID } from '../utils/constants'
 
-axios.defaults.headers = {
-  'Content-Type': 'application/json',
-  'x-auth': localStorage.getItem(USER_TOKEN)
-}
-
 export const getChatData = data => {
+  const headers = {
+    Authorization: localStorage.getItem(USER_TOKEN)
+  };
     return dispatch => {
       dispatch(startLoading());
       axios
-        .get(`${API_URL}chat/userlist`, data)
+        .get(`${API_URL}chat/userlist`, {headers})
         .then(res => {
           dispatch(stopLoading())
           if(res.data){

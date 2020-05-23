@@ -6,11 +6,6 @@ import { actionType } from "./types"
 import { USER_TOKEN, USER_ID } from '../utils/constants'
 import io from "socket.io-client";
 
-axios.defaults.headers = {
-  'Content-Type': 'application/json',
-  'x-auth': localStorage.getItem(USER_TOKEN)
-}
-
 export const loginRequest = data => {
     return dispatch => {
       dispatch(startLoading());
@@ -20,6 +15,10 @@ export const loginRequest = data => {
           dispatch(stopLoading())
           if(res.data.token){
             const socket = io(SOCKET_URL);
+            socket.on('connect', function () {
+              console.log("socket connected")
+              socket.emit('join', {userid: res.data.id});
+            });
             res.data.socket = socket;
             dispatch(loginSuccess(res.data))
             localStorage.setItem(USER_TOKEN, res.data.token)
@@ -38,12 +37,15 @@ export const loginRequest = data => {
   };
 
   export const logoutRequest = () => {
+    const headers = {
+      Authorization: localStorage.getItem(USER_TOKEN)
+    };
     return dispatch => {
     dispatch(startLoading());
     localStorage.clear()
 
     axios
-    .delete(`${API_URL}user/logout`)
+    .delete(`${API_URL}user/logout`,{headers})
     .then(res => {
       dispatch(stopLoading())
       dispatch(logoutSuccess)
