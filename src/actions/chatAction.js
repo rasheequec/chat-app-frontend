@@ -5,14 +5,14 @@ import { history } from "../utils/history"
 import { actionType } from "./types"
 import { USER_TOKEN, USER_ID } from '../utils/constants'
 
-export const getChatData = data => {
+export const getChatData = id => {
   const headers = {
     Authorization: localStorage.getItem(USER_TOKEN)
   };
     return dispatch => {
       dispatch(startLoading());
       axios
-        .get(`${API_URL}chat/userlist`, {headers})
+        .get(`${API_URL}chat/chatlist/${id}`, {headers})
         .then(res => {
           dispatch(stopLoading())
           if(res.data){
@@ -29,6 +29,13 @@ export const getChatData = data => {
     };
   };
 
+  export const sendMessage = (data, socket) => {
+    return dispatch => {
+    socket.emit(actionType.MESSAGE_SEND_REQUEST, data)
+    dispatch(sendMessageRequest)
+    }
+  }
+
 
   const getChatDataSuccess = data => {
     return({
@@ -36,3 +43,9 @@ export const getChatData = data => {
       payload: data
     })
   }
+
+  const sendMessageRequest = data => {
+  return({
+    type: actionType.MESSAGE_SEND_REQUEST
+  })
+}

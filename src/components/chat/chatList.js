@@ -1,6 +1,7 @@
 import React from "react"
 import { Input, Avatar, Col, Row } from 'antd';
 import { SearchOutlined, UserOutlined } from '@ant-design/icons';
+import chat from "./chat";
 
 const ChatList = (props) => {
     return(
@@ -17,9 +18,9 @@ const ChatList = (props) => {
     </div>
 
     <div>
-        {props.data.userList.map(user => {
+        {props.data.map(chat => {
             return(
-                <span className="userlist">
+                <span className="userlist" onClick={() => props.selectChatHandle(chat)}>
         <Row>
          <Col span={4}>
          <Avatar size={42} icon={<UserOutlined />} />
@@ -27,7 +28,7 @@ const ChatList = (props) => {
          <Col span={20}>
          <Row>
                  <Col span={20}>
-            <h5 className="username">{user.username}</h5>
+            <h5 className="username">{chat.username}</h5>
                  </Col>
                  <Col span={4} className="time">
                  12:20

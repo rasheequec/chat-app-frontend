@@ -6,7 +6,7 @@ import Chat from '../chat/chat'
 const Home = (props) => {
 
 const logoutHandle = () => {
-  props.socket.disconnect()
+  props.socket && props.socket.disconnect()
   props.logoutRequest()
 }
 return(
