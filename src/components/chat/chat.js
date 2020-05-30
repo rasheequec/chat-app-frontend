@@ -5,27 +5,48 @@ import MessageList from './messageList';
 import MessageHeader from './messageHeader';
 import ChatHeader from './chatHeader';
 import { connect } from 'react-redux';
-import { getChatData, sendMessage } from '../../actions/chatAction';
+import { getChatData, sendMessage, receiveMessage } from '../../actions/chatAction';
+import { initiateSocket } from '../../actions/loginAction';
+import { USER_ID, SOCKET_URL } from '../../utils/constants';
+import io from "socket.io-client";
 import './chat.css';
 
 const style = { background: '#F5F6FA', padding: '8px 0' };
 
 const Chat = (props) => {
 
-  const [activeChat, setActiveChat] = useState({})
+  const [activeChatIndex, setActiveChatIndex] = useState(0)
 
   useEffect(() => {
-    props.getChatData(props.userid)
+    props.getChatData(localStorage.getItem(USER_ID))
+    if(!props.socket){
+      const socket = io(SOCKET_URL);
+      socket.on('connect', function (socket) {
+      });
+      socket.emit('join', {userid: localStorage.getItem(USER_ID)});
+      socket.on('RECEIVE_MESSAGE',props.receiveMessage)
+      props.initiateSocket(socket)
+    }
+    else{
+      props.socket.on('RECEIVE_MESSAGE',props.receiveMessage)
+    }  
   },[]);
 
+  // useEffect(() => {
+  //   console.log('data changes',props.data)
+  //  },[activeChatIndex]);
+
  const selectChatHandle = chat => {
-    setActiveChat(chat)
+   const findIndex = props.data.findIndex(a => {
+    return a.chatId == chat.chatId
+   })
+   setActiveChatIndex(findIndex)
   }
 
  const sendMessage = message => {
    const data = {}
-   data.senderId = activeChat.id
-   data.receiverId = props.userid
+   data.senderId = localStorage.getItem(USER_ID)
+   data.receiverId = props.data[activeChatIndex].id
    data.message = message
    data.time = Date.now()
    props.sendMessage(data, props.socket)
@@ -33,7 +54,7 @@ const Chat = (props) => {
  } 
 
   const testHandle = () => {
-    props.socket.emit('MESSAGE_SEND_REQUEST', { senderId: props.userid, receiverId: "5eae65bd565c0a0488a3fe3c", message: "helllll", time: Date.now() });
+    props.socket.emit('MESSAGE_SEND_REQUEST', { senderId: localStorage.getItem(USER_ID), receiverId: "5eae65bd565c0a0488a3fe3c", message: "helllll", time: Date.now() });
   }
 
     return(
@@ -53,7 +74,7 @@ const Chat = (props) => {
             <ChatList data={props.data} selectChatHandle={selectChatHandle}/>
         </Col>
         <Col span={16} style={{backgroundColor: '#F5F6FA', padding: '0% 1.5% 1.5% 1.5%', height:"inherit"}}>
-            <MessageList activeChat={activeChat} sendMessage={sendMessage} />
+            <MessageList activeChatIndex={activeChatIndex} sendMessage={sendMessage} />
         </Col>
     </Row>
     </div>
@@ -62,13 +83,14 @@ const Chat = (props) => {
 
 const mapDispatchToProps = {
   getChatData,
-  sendMessage
+  sendMessage,
+  receiveMessage,
+  initiateSocket
  };
 const mapStateToProps = state => {
   return {
     data: state.chat.chatData,
-    socket: state.login.socket,
-    userid: state.login.id
+    socket: state.login.socket
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Chat);

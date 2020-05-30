@@ -32,7 +32,14 @@ export const getChatData = id => {
   export const sendMessage = (data, socket) => {
     return dispatch => {
     socket.emit(actionType.MESSAGE_SEND_REQUEST, data)
-    dispatch(sendMessageRequest)
+    dispatch(sendMessageRequest(data))
+    }
+  }
+
+  export const receiveMessage = (data) => {
+    return dispatch => {
+      console.log('data is',data)
+      dispatch(receiveMessageRequest)
     }
   }
 
@@ -44,8 +51,15 @@ export const getChatData = id => {
     })
   }
 
-  const sendMessageRequest = data => {
+  const sendMessageRequest = payload => {
   return({
-    type: actionType.MESSAGE_SEND_REQUEST
+    type: actionType.MESSAGE_SEND_REQUEST,
+    payload
   })
 }
+
+  const receiveMessageRequest = data => {
+    return({
+      type: actionType.RECEIVE_MESSAGE
+    })
+  }

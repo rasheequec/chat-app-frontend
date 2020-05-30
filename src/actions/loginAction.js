@@ -36,6 +36,11 @@ export const loginRequest = data => {
     };
   };
 
+  export const initiateSocket = socket => {
+    return dispatch => {
+      dispatch(initSocket({socket}));
+    }
+  }
   export const logoutRequest = () => {
     const headers = {
       Authorization: localStorage.getItem(USER_TOKEN)
@@ -68,5 +73,12 @@ export const loginRequest = data => {
   const logoutSuccess = () => {
     return({
       type: actionType.USER_LOGOUT
+    })
+  }
+
+  const initSocket = (payload) => {
+    return({
+      type: actionType.INIT_SOCKET,
+      payload
     })
   }

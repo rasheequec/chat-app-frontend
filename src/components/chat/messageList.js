@@ -1,12 +1,16 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Row, Col } from "antd"
 import MessageField from "./messageField"
+import { connect } from 'react-redux';
 
 const MessageList = (props) => {
+  useEffect(() => {
+   console.log('data changes',props.data)
+  },[props.data]);
     return(
     <React.Fragment>
          <div id="messageList">
-        {props.activeChat && props.activeChat.messages && props.activeChat.messages.map(chat => {
+        {props.data && props.data[props.activeChatIndex] && props.data[props.activeChatIndex].messages.map(chat => {
           return (
            <div>
             <p className="leftmessage">{chat.message}</p><br/><br/>
@@ -25,4 +29,9 @@ const MessageList = (props) => {
     )
 }
 
-export default MessageList
+const mapStateToProps = state => {
+  return {
+    data: state.chat.chatData
+  }
+}
+export default connect(mapStateToProps)(MessageList);
