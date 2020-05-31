@@ -3,7 +3,7 @@ import { API_URL, SOCKET_URL } from "../utils/constants"
 import { startLoading, stopLoading, alertMessage } from "./commonAction"
 import { history } from "../utils/history"
 import { actionType } from "./types"
-import { USER_TOKEN, USER_ID } from '../utils/constants'
+import { USER_TOKEN, USER_ID, USER_NAME } from '../utils/constants'
 import io from "socket.io-client";
 
 export const loginRequest = data => {
@@ -23,6 +23,8 @@ export const loginRequest = data => {
             dispatch(loginSuccess(res.data))
             localStorage.setItem(USER_TOKEN, res.data.token)
             localStorage.setItem(USER_ID, res.data.id)
+            localStorage.setItem(USER_NAME, res.data.username)
+
             history.push('/')
           }
           else{

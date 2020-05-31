@@ -1,6 +1,7 @@
 import React from "react"
 import { Col, Row, Avatar } from "antd"
 import { UserOutlined } from '@ant-design/icons';
+import { USER_NAME } from '../../utils/constants';
 
 const ChatHeader = (props) => {
     return(
@@ -11,7 +12,7 @@ const ChatHeader = (props) => {
                 </Col>
                 <Col span={20} style={{padding:"1.5%"}}>
                     <Row>
-                    <h5 className="chathead">My Name</h5>
+                    <h5 className="chathead">{localStorage.getItem(USER_NAME)}</h5>
                     </Row>
                     <Row>
                     <span className="chatsub">rasheequec@gmail.com</span>

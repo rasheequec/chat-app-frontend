@@ -10,7 +10,7 @@ const chat = (state = initialState, action) => {
         let index = state.chatData.findIndex(findId)
         let newData = state.chatData;
         newData[index].messages.push(action.payload)
-        return {...state, chatData: [...state.chatData, ...newData]}
+        return {...state, chatData: [...newData]}
       case actionType.RECEIVE_MESSAGE:
         return {...state}
       case actionType.USER_LOGOUT:

@@ -32,10 +32,6 @@ const Chat = (props) => {
     }  
   },[]);
 
-  // useEffect(() => {
-  //   console.log('data changes',props.data)
-  //  },[activeChatIndex]);
-
  const selectChatHandle = chat => {
    const findIndex = props.data.findIndex(a => {
     return a.chatId == chat.chatId
@@ -74,7 +70,7 @@ const Chat = (props) => {
             <ChatList data={props.data} selectChatHandle={selectChatHandle}/>
         </Col>
         <Col span={16} style={{backgroundColor: '#F5F6FA', padding: '0% 1.5% 1.5% 1.5%', height:"inherit"}}>
-            <MessageList activeChatIndex={activeChatIndex} sendMessage={sendMessage} />
+            <MessageList data={props.data} activeChatIndex={activeChatIndex} sendMessage={sendMessage} />
         </Col>
     </Row>
     </div>
