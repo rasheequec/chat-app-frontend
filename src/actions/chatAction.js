@@ -39,7 +39,7 @@ export const getChatData = id => {
   export const receiveMessage = (data) => {
     return dispatch => {
       console.log('data is',data)
-      dispatch(receiveMessageRequest)
+      dispatch(receiveMessageRequest(data))
     }
   }
 
@@ -58,8 +58,9 @@ export const getChatData = id => {
   })
 }
 
-  const receiveMessageRequest = data => {
+  const receiveMessageRequest = payload => {
     return({
-      type: actionType.RECEIVE_MESSAGE
+      type: actionType.RECEIVE_MESSAGE,
+      payload
     })
   }

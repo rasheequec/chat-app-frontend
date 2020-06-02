@@ -12,7 +12,11 @@ const chat = (state = initialState, action) => {
         newData[index].messages.push(action.payload)
         return {...state, chatData: [...newData]}
       case actionType.RECEIVE_MESSAGE:
-        return {...state}
+        const findChatId = (element) => element.chatId == action.payload.chatId
+        let chatIndex = state.chatData.findIndex(findChatId)
+        let newData2 = state.chatData;
+        newData2[chatIndex].messages.push(action.payload.message)
+        return {...state, chatData: [...newData2]}
       case actionType.USER_LOGOUT:
         return {}
       default:

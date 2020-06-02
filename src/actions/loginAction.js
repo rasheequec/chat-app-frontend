@@ -14,7 +14,7 @@ export const loginRequest = data => {
         .then(res => {
           dispatch(stopLoading())
           if(res.data.token){
-            const socket = io(SOCKET_URL);
+            const socket = io(SOCKET_URL, {query:`userid=${res.data.id}`});
             socket.on('connect', function () {
               console.log("socket connected")
               socket.emit('join', {userid: res.data.id});

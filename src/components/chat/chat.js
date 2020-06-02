@@ -20,7 +20,7 @@ const Chat = (props) => {
   useEffect(() => {
     props.getChatData(localStorage.getItem(USER_ID))
     if(!props.socket){
-      const socket = io(SOCKET_URL);
+      const socket = io(SOCKET_URL,  {query:`userid=${localStorage.getItem(USER_ID)}`});
       socket.on('connect', function (socket) {
       });
       socket.emit('join', {userid: localStorage.getItem(USER_ID)});
