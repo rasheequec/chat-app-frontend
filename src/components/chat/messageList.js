@@ -1,6 +1,7 @@
 import React from "react"
 import { Row, Col } from "antd"
 import MessageField from "./messageField"
+import { USER_ID } from '../../utils/constants';
 
 const MessageList = (props) => {
     return(
@@ -8,8 +9,8 @@ const MessageList = (props) => {
          <div id="messageList">
         {props.data && props.data[props.activeChatIndex] && props.data[props.activeChatIndex].messages.map(chat => {
           return (
-           <div>
-            <p className="leftmessage">{chat.message}</p><br/><br/>
+           <div className={chat.senderId == localStorage.getItem(USER_ID) ? "rightdiv":"leftdiv"}>
+            <p className="message">{chat.message}</p><br/><br/>
             {/* <p className="rightmessage">Hey bro, Iam here andrews. Hope you doing well. </p>
             <p className="leftmessage">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p><br/><br/>
             <p className="rightmessage">Hey bro, Iam here andrews. Hope you doing well. </p>

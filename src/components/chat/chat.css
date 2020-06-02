@@ -50,26 +50,22 @@
     border-radius: 25px;
     overflow-x: auto;
 }
-#messageList .leftmessage{
+#messageList .leftdiv{
+    display: flex;
+}
+#messageList .rightdiv{
+    display: flex;
+    justify-content: flex-end;
+}
+#messageList .message{
     background-color: #455DC7;
     border-radius: 0px 18px 18px 18px;
     color: #fafafa;
     padding: 1.5%;
     display: inline-block;
-    float: left;
     max-width: 80%;
-    margin: 6% 4%;
-    /* margin-right: auto; */
-}
-#messageList .rightmessage{
-    background-color: #455DC7;
-    border-radius: 18px 0px 18px 18px;
-    color: #fafafa;
-    padding: 1.5%;
-    display: inline-block;
-    float: right;
-    max-width: 80%;
-    margin: 6% 4%;
+    margin: 14px 30px;
+    padding: 8px 24px;
 }
 .message-field{
     border-radius: 25px;
