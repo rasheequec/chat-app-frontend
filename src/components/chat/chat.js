@@ -54,21 +54,21 @@ const Chat = (props) => {
   }
 
     return(
-    <div style={{padding: "45px"}}>
+    <div style={{padding: "15px", height: "100vh"}}>
         {/* <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}></Row> */}
      <Row>
-      <Col className="gutter-row" span={8} style={{backgroundColor: '#F5F6FA', padding: '1% 1.5%', height:"inherit"}}> 
+      <Col className="gutter-row" span={8} style={{backgroundColor: '#F5F6FA', padding: "12px 15px"}}> 
         <ChatHeader />
       </Col>
-      <Col className="gutter-row" span={16} style={{backgroundColor: '#F5F6FA', padding: '1% 1.5%', height:"inherit"}}>
+      <Col className="gutter-row" span={16} style={{backgroundColor: '#F5F6FA', padding: "12px 15px"}}>
         <MessageHeader />
       </Col>
     </Row>
     <Row>
-        <Col span={8} style={{backgroundColor: '#F5F6FA', padding: '0% 1.5% 1.5% 1.5%', height:"inherit"}}>
+        <Col span={8} style={{backgroundColor: '#F5F6FA', paddingRight: '15px', paddingLeft: "15px", paddingBottom: "28px", height:"85vh"}}>
             <ChatList data={props.data} selectChatHandle={selectChatHandle}/>
         </Col>
-        <Col span={16} style={{backgroundColor: '#F5F6FA', padding: '0% 1.5% 1.5% 1.5%', height:"inherit"}}>
+        <Col span={16} style={{backgroundColor: '#F5F6FA', padding: '0px 15px', height:"inherit"}}>
             <MessageList data={props.data} activeChatIndex={activeChatIndex} sendMessage={sendMessage} />
         </Col>
     </Row>

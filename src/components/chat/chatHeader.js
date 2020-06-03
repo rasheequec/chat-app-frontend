@@ -7,10 +7,10 @@ const ChatHeader = (props) => {
     return(
         <div id="chat-header">
             <Row>
-                <Col span={4} style={{padding:'2%'}}>
+                <Col span={4} style={{padding:'2px'}}>
                 <Avatar size={32} icon={<UserOutlined />} />
                 </Col>
-                <Col span={20} style={{padding:"1.5%"}}>
+                <Col span={20} style={{padding:"2px"}}>
                     <Row>
                     <h5 className="chathead">{localStorage.getItem(USER_NAME)}</h5>
                     </Row>

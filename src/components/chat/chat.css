@@ -46,7 +46,7 @@
 
 #messageList{
     background-color: white;
-    height: 68vh;
+    height: 73vh;
     border-radius: 25px;
     overflow-x: auto;
 }
@@ -68,7 +68,7 @@
     padding: 8px 24px;
 }
 .message-field{
-    border-radius: 25px;
+    border-radius: 7px;
     margin-top: 2%;
 }
 
@@ -79,13 +79,13 @@
     border-radius: 10px;
 }
 #message-header .messagehead{
-    font-size: 1.2em;
-    padding: 2% 4%;
+    font-size: 16px;
+    padding: 10px;
     margin: 0;
 }
 #message-header .icon{
-    margin: 11%;
-    font-size: 1.4em;
+    margin: 11px;
+    font-size: 20px;
     cursor: pointer;
 }
 

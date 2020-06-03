@@ -47,6 +47,122 @@ const ChatList = (props) => {
         </span>
             )
         })}
+                {props.data.map(chat => {
+            return(
+                <span className="userlist" onClick={() => props.selectChatHandle(chat)}>
+        <Row>
+         <Col span={4}>
+         <Avatar size={42} icon={<UserOutlined />} />
+         </Col>
+         <Col span={20}>
+         <Row>
+                 <Col span={20}>
+            <h5 className="username">{chat.username}</h5>
+                 </Col>
+                 <Col span={4} className="time">
+                 12:20
+                 </Col>
+             </Row>
+             <Row>
+                 <Col span={20}>
+                 <p className="lastmessage">my message is here.</p>
+                 </Col>
+                 <Col span={4} className="message-icon-col">
+                 <span className="message-icon">22</span>
+                 </Col>
+             </Row>
+         </Col>
+        </Row>
+        </span>
+            )
+        })}
+                {props.data.map(chat => {
+            return(
+                <span className="userlist" onClick={() => props.selectChatHandle(chat)}>
+        <Row>
+         <Col span={4}>
+         <Avatar size={42} icon={<UserOutlined />} />
+         </Col>
+         <Col span={20}>
+         <Row>
+                 <Col span={20}>
+            <h5 className="username">{chat.username}</h5>
+                 </Col>
+                 <Col span={4} className="time">
+                 12:20
+                 </Col>
+             </Row>
+             <Row>
+                 <Col span={20}>
+                 <p className="lastmessage">my message is here.</p>
+                 </Col>
+                 <Col span={4} className="message-icon-col">
+                 <span className="message-icon">22</span>
+                 </Col>
+             </Row>
+         </Col>
+        </Row>
+        </span>
+            )
+        })}
+                {props.data.map(chat => {
+            return(
+                <span className="userlist" onClick={() => props.selectChatHandle(chat)}>
+        <Row>
+         <Col span={4}>
+         <Avatar size={42} icon={<UserOutlined />} />
+         </Col>
+         <Col span={20}>
+         <Row>
+                 <Col span={20}>
+            <h5 className="username">{chat.username}</h5>
+                 </Col>
+                 <Col span={4} className="time">
+                 12:20
+                 </Col>
+             </Row>
+             <Row>
+                 <Col span={20}>
+                 <p className="lastmessage">my message is here.</p>
+                 </Col>
+                 <Col span={4} className="message-icon-col">
+                 <span className="message-icon">22</span>
+                 </Col>
+             </Row>
+         </Col>
+        </Row>
+        </span>
+            )
+        })}
+                {props.data.map(chat => {
+            return(
+                <span className="userlist" onClick={() => props.selectChatHandle(chat)}>
+        <Row>
+         <Col span={4}>
+         <Avatar size={42} icon={<UserOutlined />} />
+         </Col>
+         <Col span={20}>
+         <Row>
+                 <Col span={20}>
+            <h5 className="username">{chat.username}</h5>
+                 </Col>
+                 <Col span={4} className="time">
+                 12:20
+                 </Col>
+             </Row>
+             <Row>
+                 <Col span={20}>
+                 <p className="lastmessage">my message is here.</p>
+                 </Col>
+                 <Col span={4} className="message-icon-col">
+                 <span className="message-icon">22</span>
+                 </Col>
+             </Row>
+         </Col>
+        </Row>
+        </span>
+            )
+        })}
         {/* <span className="userlist">
         <Row>
          <Col span={4}>
