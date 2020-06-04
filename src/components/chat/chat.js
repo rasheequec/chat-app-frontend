@@ -68,7 +68,7 @@ const Chat = (props) => {
         <Col span={5} style={{backgroundColor: '#F5F6FA'}}>
             <ChatList data={props.data} selectChatHandle={selectChatHandle}/>
         </Col>
-        <Col span={19} style={{backgroundColor: '#F5F6FA', height:"inherit"}}>
+        <Col span={19} style={{backgroundColor: '#F5F6FA'}}>
             <MessageList data={props.data} activeChatIndex={activeChatIndex} sendMessage={sendMessage} />
         </Col>
     </Row>

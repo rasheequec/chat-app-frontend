@@ -52,8 +52,9 @@ hr{
 
 
 #messageList{
-    background-color: black;
+    background-color: #232222;
     overflow-x: auto;
+    height: 78vh;
 }
 #messageList .leftdiv{
     display: flex;
@@ -74,15 +75,26 @@ hr{
 
 
 #message-header{
-    background-color: black;
+    height: 12vh;
+    background-color: #232222;
+    display: flex;
+    align-items: center;
+    padding: 0px 30px 0 30px;
 }
 #message-header .messagehead{
-    font-size: 16px;
+    font-size: 1em;
     margin: 0;
 }
+#message-header .email{
+    margin: 0;
+    color: #828282;
+    font-size: 0.85em;
+}
 #message-header .icon{
-    font-size: 20px;
+    font-size: 1.3em;
     cursor: pointer;
+    color: #828282;
+    padding: 10px;
 }
 
 
