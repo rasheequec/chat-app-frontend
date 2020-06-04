@@ -16,8 +16,9 @@ const MessageField = (props) => {
         }
     }
     return(
-        <React.Fragment>
+        <div id="textmessage">
           <Input
+           style={{background: "black"}}
            className="message-field"
            placeholder="Type your message here.."
            size="large"
@@ -28,7 +29,7 @@ const MessageField = (props) => {
           <SendOutlined style={{ color: 'rgba(0,0,0,.45)' }} onClick={sendMessage}/>
       }
     />
-        </React.Fragment>
+        </div>
     )
 }
 

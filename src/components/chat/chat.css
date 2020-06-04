@@ -1,40 +1,47 @@
+p,h1,h2,h3,h4,h5,span{color:white;}
+hr{
+    border-color: #828282;
+    margin: 0;
+}
+
 #chatList{
-    background-color: white;
-    height: 100%;
-    border-radius: 25px;
+    background-color: #040404;
     overflow-x: auto;
+    height: 75vh;
+}
+#chatList .ant-input-affix-wrapper > input.ant-input{
+    background-color: #040404;
+    color: #efe1e1;
+    font-size: 0.95em;
 }
 #chatList .search-input{
-    border-radius: 50px;
-    margin: 5% 2%;
-    width: 90%;
-    height: 2.35em;
+    background-color: #040404;
+    border: #040404;
 }
 #chatList .userlist{
-    float: left;
-    margin: 3% 5%;
-    width: 90%;
+  display: flex;
+  align-items: center;
+}
+#chatList .userdiv{
+    width: 87%;
+    padding: 12px;
 }
 #chatList .username{
-    font-size: 1em;
-    font-weight: 700;
-    margin: 1%;
+    margin: 0;
+    font-size: 0.88em;   
 }
 #chatList .lastmessage{
-    font-size: 0.9em;
-    margin-left: 1%;
+    margin: 0;
+    font-size: 0.82em;
+    color: #828282;
 }
 #chatList .time{
-    font-size: 0.8em;
-    color: #b9b9b9;
-    text-align: center;
-    padding-top: 1.5%;
+    font-size: 0.72em;
+    color: #828282;
 }
 #chatList .message-icon{
     background-color: #e25b58;
     color: white;
-    border-radius: 50px;
-    padding: 1.75px 3px;
     font-size: 0.8em;
 }
 #chatList .message-icon-col{
@@ -45,9 +52,7 @@
 
 
 #messageList{
-    background-color: white;
-    height: 73vh;
-    border-radius: 25px;
+    background-color: black;
     overflow-x: auto;
 }
 #messageList .leftdiv{
@@ -59,46 +64,52 @@
 }
 #messageList .message{
     background-color: #455DC7;
-    border-radius: 0px 18px 18px 18px;
     color: #fafafa;
-    padding: 1.5%;
     display: inline-block;
     max-width: 80%;
-    margin: 14px 30px;
-    padding: 8px 24px;
 }
 .message-field{
-    border-radius: 7px;
-    margin-top: 2%;
+    background-color: black;
 }
 
 
 #message-header{
-    background-color: white;
-    height: 100%;
-    border-radius: 10px;
+    background-color: black;
 }
 #message-header .messagehead{
     font-size: 16px;
-    padding: 10px;
     margin: 0;
 }
 #message-header .icon{
-    margin: 11px;
     font-size: 20px;
     cursor: pointer;
 }
 
 
+
 #chat-header{
-    background-color: white;
-    height: 100%;
-    border-radius: 10px;
+    background-color: #040404;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 #chat-header .chathead{
     font-size: 0.9em;
     margin: 0;
 }
+#chat-header .email{
+    font-size: 0.8em;
+    color: #828282;
+}
+#chat-header .username{
+    margin: 4px 0px 0px 0px;
+}
 #chat-header .chatsub{
     font-size: 0.8em;
+}
+#textmessage .ant-input-affix-wrapper > input.ant-input{
+    background: black;
+    color: white;
 }

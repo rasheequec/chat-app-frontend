@@ -1,0 +1,3 @@
+colors -
+Full black - #040404
+sub heading light white - #828282

@@ -9,7 +9,7 @@ const MessageHeader = (props) => {
                 <Col span={20}>
                 <h5 className="messagehead">Rasheeque</h5>
                 </Col>
-                <Col span={4} style={{textAlign:"center"}}>
+                <Col span={4} style={{textAlign:"center", color: "white"}}>
                 <PhoneOutlined className="icon"/>
                 <VideoCameraOutlined className="icon"/>
                 </Col>

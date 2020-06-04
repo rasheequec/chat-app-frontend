@@ -11,7 +11,7 @@ import { USER_ID, SOCKET_URL } from '../../utils/constants';
 import io from "socket.io-client";
 import './chat.css';
 
-const style = { background: '#F5F6FA', padding: '8px 0' };
+const style = { background: '#F5F6FA'};
 
 const Chat = (props) => {
 
@@ -54,21 +54,21 @@ const Chat = (props) => {
   }
 
     return(
-    <div style={{padding: "15px", height: "100vh"}}>
+    <div style={{height: "100vh"}}>
         {/* <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}></Row> */}
      <Row>
-      <Col className="gutter-row" span={8} style={{backgroundColor: '#F5F6FA', padding: "12px 15px"}}> 
+      <Col className="gutter-row" span={5} style={{backgroundColor: '#F5F6FA'}}> 
         <ChatHeader />
       </Col>
-      <Col className="gutter-row" span={16} style={{backgroundColor: '#F5F6FA', padding: "12px 15px"}}>
+      <Col className="gutter-row" span={19} style={{backgroundColor: '#F5F6FA'}}>
         <MessageHeader />
       </Col>
     </Row>
     <Row>
-        <Col span={8} style={{backgroundColor: '#F5F6FA', paddingRight: '15px', paddingLeft: "15px", paddingBottom: "28px", height:"85vh"}}>
+        <Col span={5} style={{backgroundColor: '#F5F6FA'}}>
             <ChatList data={props.data} selectChatHandle={selectChatHandle}/>
         </Col>
-        <Col span={16} style={{backgroundColor: '#F5F6FA', padding: '0px 15px', height:"inherit"}}>
+        <Col span={19} style={{backgroundColor: '#F5F6FA', height:"inherit"}}>
             <MessageList data={props.data} activeChatIndex={activeChatIndex} sendMessage={sendMessage} />
         </Col>
     </Row>
