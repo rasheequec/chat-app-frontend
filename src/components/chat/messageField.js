@@ -26,7 +26,7 @@ const MessageField = (props) => {
            onChange={changeHandle}
            onPressEnter={sendMessage}
            suffix={
-          <SendOutlined style={{ color: 'rgba(0,0,0,.45)' }} onClick={sendMessage}/>
+          <SendOutlined style={{ color: 'white' }} onClick={sendMessage}/>
       }
     />
         </div>

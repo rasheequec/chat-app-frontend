@@ -5,7 +5,9 @@ import { USER_NAME } from '../../utils/constants';
 
 const ChatHeader = (props) => {
     return (
+    
         <div id="chat-header">
+            {console.log("props",props)}
             <Avatar size={70} src="https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg" icon={<UserOutlined />} />
             <h4 className="username">Rasheeque Abdulla</h4>
             <p className="email">rasheeque1997@gmail.com</p>

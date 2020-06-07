@@ -16,6 +16,8 @@ const style = { background: '#F5F6FA'};
 const Chat = (props) => {
 
   const [activeChatIndex, setActiveChatIndex] = useState(0)
+  const [chatData, setChatData] = useState([])
+  const [isSearching, setIsSearching] = useState(false)
 
   useEffect(() => {
     props.getChatData(localStorage.getItem(USER_ID))
@@ -48,7 +50,25 @@ const Chat = (props) => {
    props.sendMessage(data, props.socket)
   console.log("m is" ,data)
  } 
-
+ const searchHandle = e =>{
+  console.log(e.target.value)
+  if(e.target.value.length>0){
+    setIsSearching(true)
+  }
+  else{
+    setIsSearching(false)
+  }
+  const searchFilter = props.data.filter(data => {
+    return data.username.toLowerCase().substring(0, e.target.value.length) ==
+    e.target.value.toLowerCase()
+  })
+  setChatData(searchFilter)
+}
+useEffect(() => {
+  if(chatData.length == 0 && !isSearching){
+    setChatData(props.data)
+  }
+});
   const testHandle = () => {
     props.socket.emit('MESSAGE_SEND_REQUEST', { senderId: localStorage.getItem(USER_ID), receiverId: "5eae65bd565c0a0488a3fe3c", message: "helllll", time: Date.now() });
   }
@@ -59,19 +79,21 @@ const Chat = (props) => {
      <Row>
       <Col className="gutter-row" span={5} style={{backgroundColor: '#F5F6FA'}}> 
         <ChatHeader />
+        <ChatList data={chatData} selectChatHandle={selectChatHandle} searchHandle={searchHandle}/>
       </Col>
       <Col className="gutter-row" span={19} style={{backgroundColor: '#F5F6FA'}}>
         <MessageHeader />
+        <MessageList data={props.data} activeChatIndex={activeChatIndex} sendMessage={sendMessage} />
       </Col>
     </Row>
-    <Row>
+    {/* <Row>
         <Col span={5} style={{backgroundColor: '#F5F6FA'}}>
             <ChatList data={props.data} selectChatHandle={selectChatHandle}/>
         </Col>
         <Col span={19} style={{backgroundColor: '#F5F6FA'}}>
             <MessageList data={props.data} activeChatIndex={activeChatIndex} sendMessage={sendMessage} />
         </Col>
-    </Row>
+    </Row> */}
     </div>
     )
 }

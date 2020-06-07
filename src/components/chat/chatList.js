@@ -12,6 +12,7 @@ const ChatList = (props) => {
                     className="search-input"
                     placeholder="Search"
                     size="large"
+                    onChange={e => props.searchHandle(e)}
                     suffix={
                         <SearchOutlined style={{ color: '#efe1e1' }} />
                     }

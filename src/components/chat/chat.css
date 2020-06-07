@@ -4,6 +4,28 @@ hr{
     margin: 0;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px grey; 
+    border-radius: 5px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: grey; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: grey; 
+  }
+
 #chatList{
     background-color: #040404;
     overflow-x: auto;
@@ -54,7 +76,7 @@ hr{
 #messageList{
     background-color: #232222;
     overflow-x: auto;
-    height: 78vh;
+    height: 81vh;
 }
 #messageList .leftdiv{
     display: flex;
@@ -68,6 +90,9 @@ hr{
     color: #fafafa;
     display: inline-block;
     max-width: 80%;
+    padding: 10px;
+    margin: 10px 25px 10px 25px;
+    border-radius: 10px;
 }
 .message-field{
     background-color: black;
@@ -121,7 +146,12 @@ hr{
 #chat-header .chatsub{
     font-size: 0.8em;
 }
+#textmessage {
+    height: 7vh;
+    background-color: black;
+}
 #textmessage .ant-input-affix-wrapper > input.ant-input{
     background: black;
     color: white;
+    /* height: 100%; */
 }

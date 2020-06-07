@@ -24,7 +24,6 @@ const MessageHeader = (props) => {
                 {/* </Col> */}
             {/* </Row> */}
         </div>
-        <hr/>
         </>
     )
 }
