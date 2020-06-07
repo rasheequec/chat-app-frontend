@@ -82,7 +82,7 @@ useEffect(() => {
         <ChatList data={chatData} selectChatHandle={selectChatHandle} searchHandle={searchHandle}/>
       </Col>
       <Col className="gutter-row" span={19} style={{backgroundColor: '#F5F6FA'}}>
-        <MessageHeader />
+        <MessageHeader data={props.data} activeChatIndex={activeChatIndex}/>
         <MessageList data={props.data} activeChatIndex={activeChatIndex} sendMessage={sendMessage} />
       </Col>
     </Row>
