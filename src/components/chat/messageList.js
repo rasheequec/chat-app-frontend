@@ -11,8 +11,37 @@ const MessageList = (props) => {
   const scrollDown = () => {
     messageRef.current.scrollTop = messageRef.current.scrollHeight ? messageRef.current.scrollHeight : "0"
   }
+  const test = () => {
+    var domain = "meet.jit.si";
+    // const startAudioOnly = props.callMode === CALL_MODE.AUDIO
+    var options = {
+        roomName:"123as45",
+        // configOverwrite: {
+        //     startAudioOnly: startAudioOnly,
+        // },
+        // width: 1000,
+        // height: props.iframeHeight,
+        parentNode: document.getElementById('messageList'),
+        // interfaceConfigOverwrite: {
+        //     filmStripOnly: false,
+        //     TOOLBAR_BUTTONS: [
+
+        //     ],
+            //FILM_STRIP_MAX_HEIGHT: 60,
+        // },
+        // onload: iframeOnLoad
+    }
+    // eslint-disable-next-line no-undef
+    const api = new window.JitsiMeetExternalAPI(domain, options);
+    // api.addEventListener('videoConferenceJoined', () => {
+    //   console.log('Local User Joined');
+      // setLoading(false);
+      // api.executeCommand('displayName', 'MyName');
+    //  });
+  }
     return(
     <React.Fragment>
+      {/* <button onClick={test}>Test</button> */}
          <div id="messageList" ref={messageRef}>
          <hr />
         {props.data && props.data[props.activeChatIndex] && props.data[props.activeChatIndex].messages.map(chat => {
