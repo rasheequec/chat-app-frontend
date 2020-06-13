@@ -14,7 +14,7 @@ const logoutHandle = () => {
 }
 return(
     <div>
-        {/* <button onClick={logoutHandle}>Logout</button> */}
+        <button onClick={logoutHandle}>Logout</button>
         {/* <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
     </Header> */}
         <GlobalRing/>

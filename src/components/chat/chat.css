@@ -73,6 +73,11 @@ hr{
 
 
 
+#jitsi-section{
+    background-color: #232222;
+    height: 81vh;
+}
+
 #messageList{
     background-color: #232222;
     overflow-x: auto;

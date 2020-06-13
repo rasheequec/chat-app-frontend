@@ -8,6 +8,23 @@ const MessageList = (props) => {
   useEffect(() => {
     scrollDown()
   },[props.data, props.activeChatIndex]);
+
+  useEffect(() => {
+    if(props.callData.isRoomCreated && props.callData.onCall && props.callData.roomName){
+      if(props.callData.receiverId == localStorage.getItem(USER_ID)){
+      props.socket.emit('CALL_ACCEPTED',{userid: props.callData.callerId})
+      }
+      console.log("done")
+      const url = "meet.jit.si"
+      const options = {
+        roomName: props.callData.roomName,
+        parentNode: document.getElementById('jitsi-section')
+      }
+      const api = new window.JitsiMeetExternalAPI(url, options);
+      // props.roomCreated()
+    }
+  },[props.callData]);
+
   const scrollDown = () => {
     messageRef.current.scrollTop = messageRef.current.scrollHeight ? messageRef.current.scrollHeight : "0"
   }
@@ -21,7 +38,7 @@ const MessageList = (props) => {
         // },
         // width: 1000,
         // height: props.iframeHeight,
-        parentNode: document.getElementById('messageList'),
+        parentNode: document.getElementById('jitsi-section'),
         // interfaceConfigOverwrite: {
         //     filmStripOnly: false,
         //     TOOLBAR_BUTTONS: [
@@ -42,7 +59,10 @@ const MessageList = (props) => {
     return(
     <React.Fragment>
       {/* <button onClick={test}>Test</button> */}
-         <div id="messageList" ref={messageRef}>
+      <div id="jitsi-section" style={!props.callData.onCall ? {display:'none'} : {}}>
+
+      </div>
+         <div id="messageList" ref={messageRef}  style={props.callData.onCall ? {display:'none'} : {}}>
          <hr />
         {props.data && props.data[props.activeChatIndex] && props.data[props.activeChatIndex].messages.map(chat => {
           return (

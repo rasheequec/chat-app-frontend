@@ -10,7 +10,7 @@ const ChatHeader = (props) => {
             {console.log("props",props)}
             <Avatar size={70} src="https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg" icon={<UserOutlined />} />
              <h4 className="username">{localStorage.getItem(USER_NAME)}</h4>
-             <p className="email">{localStorage.getItem(USER_EMAIL)}</p>ss
+             <p className="email">{localStorage.getItem(USER_EMAIL)}</p>
         </div>
     )
 }

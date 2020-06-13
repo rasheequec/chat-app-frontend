@@ -17,8 +17,8 @@ const MessageHeader = (props) => {
                 {/* </Col> */}
                 {/* <Col span={4} style={{textAlign:"center", color: "white"}}> */}
                 <div style={{width: '10%'}}>
-                <PhoneOutlined className="icon"/>
-                <VideoCameraOutlined className="icon"/>
+                <PhoneOutlined className="icon" onClick={() => props.initiateCall(props.data[props.activeChatIndex].id, "audio", props.data[props.activeChatIndex].username )} />
+                <VideoCameraOutlined className="icon" onClick={() => props.initiateCall(props.data[props.activeChatIndex].id, "video", props.data[props.activeChatIndex].username)} />
                 </div>
                 {/* </Col> */}
             {/* </Row> */}

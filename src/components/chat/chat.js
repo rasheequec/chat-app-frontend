@@ -6,8 +6,9 @@ import MessageHeader from './messageHeader';
 import ChatHeader from './chatHeader';
 import { connect } from 'react-redux';
 import { getChatData, sendMessage, receiveMessage } from '../../actions/chatAction';
+import { initiateCall, receiveCall, createRoom, rejectCall } from '../../actions/callAction';
 import { initiateSocket } from '../../actions/loginAction';
-import { USER_ID, SOCKET_URL } from '../../utils/constants';
+import { USER_ID, SOCKET_URL, INITIATE_CALL_EVENT } from '../../utils/constants';
 import io from "socket.io-client";
 import './chat.css';
 
@@ -27,10 +28,16 @@ const Chat = (props) => {
       });
       socket.emit('join', {userid: localStorage.getItem(USER_ID)});
       socket.on('RECEIVE_MESSAGE',props.receiveMessage)
+      socket.on('SOMEONE_CALLING', props.receiveCall )
+      socket.on('USER_ACCEPTED_CALL',props.createRoom)
+      socket.on('CALL_REJECTED_MESSAGE', props.rejectCall)
       props.initiateSocket(socket)
     }
     else{
       props.socket.on('RECEIVE_MESSAGE',props.receiveMessage)
+      props.socket.on('SOMEONE_CALLING', props.receiveCall )
+      props.socket.on('USER_ACCEPTED_CALL',props.createRoom)
+      props.socket.on('CALL_REJECTED_MESSAGE', props.rejectCall)
     }  
   },[]);
 
@@ -48,8 +55,8 @@ const Chat = (props) => {
    data.message = message
    data.time = Date.now()
    props.sendMessage(data, props.socket)
-  console.log("m is" ,data)
  } 
+
  const searchHandle = e =>{
   console.log(e.target.value)
   if(e.target.value.length>0){
@@ -64,14 +71,16 @@ const Chat = (props) => {
   })
   setChatData(searchFilter)
 }
+
 useEffect(() => {
   if(chatData.length == 0 && !isSearching){
     setChatData(props.data)
   }
 });
-  const testHandle = () => {
-    props.socket.emit('MESSAGE_SEND_REQUEST', { senderId: localStorage.getItem(USER_ID), receiverId: "5eae65bd565c0a0488a3fe3c", message: "helllll", time: Date.now() });
-  }
+
+const initiateCall = (receiverId, type, receiver) => {
+  props.initiateCall({receiverId, type, receiver}, props.socket)
+}
 
     return(
     <div style={{height: "100vh"}}>
@@ -82,18 +91,10 @@ useEffect(() => {
         <ChatList data={chatData} selectChatHandle={selectChatHandle} searchHandle={searchHandle}/>
       </Col>
       <Col className="gutter-row" span={19} style={{backgroundColor: '#F5F6FA'}}>
-        <MessageHeader data={props.data} activeChatIndex={activeChatIndex}/>
-        <MessageList data={props.data} activeChatIndex={activeChatIndex} sendMessage={sendMessage} />
+        <MessageHeader data={props.data} activeChatIndex={activeChatIndex} initiateCall={initiateCall}/>
+        <MessageList data={props.data} activeChatIndex={activeChatIndex} sendMessage={sendMessage} callData={props.callData} roomCreated={createRoom} socket={props.socket}/>
       </Col>
     </Row>
-    {/* <Row>
-        <Col span={5} style={{backgroundColor: '#F5F6FA'}}>
-            <ChatList data={props.data} selectChatHandle={selectChatHandle}/>
-        </Col>
-        <Col span={19} style={{backgroundColor: '#F5F6FA'}}>
-            <MessageList data={props.data} activeChatIndex={activeChatIndex} sendMessage={sendMessage} />
-        </Col>
-    </Row> */}
     </div>
     )
 }
@@ -102,12 +103,17 @@ const mapDispatchToProps = {
   getChatData,
   sendMessage,
   receiveMessage,
-  initiateSocket
+  initiateSocket,
+  initiateCall,
+  receiveCall,
+  createRoom,
+  rejectCall
  };
 const mapStateToProps = state => {
   return {
     data: state.chat.chatData,
-    socket: state.login.socket
+    socket: state.login.socket,
+    callData: state.call
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Chat);
