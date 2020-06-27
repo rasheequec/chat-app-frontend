@@ -66,7 +66,7 @@ export const rejectCall = (message, id, name, socket) => {
       })
   }
 
-  const callRejected = () => {
+  export const callRejected = () => {
     return({
       type: actionType.CALL_REJECTED
     })

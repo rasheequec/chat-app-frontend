@@ -5,12 +5,22 @@ import { USER_ID } from '../../utils/constants';
 
 const MessageList = (props) => {
   const messageRef = React.createRef()
+
+
+
   useEffect(() => {
     scrollDown()
   },[props.data, props.activeChatIndex]);
 
   useEffect(() => {
     if(props.callData.isRoomCreated && props.callData.onCall && props.callData.roomName){
+    
+      const callHungup = () => {
+        props.callRejected()
+        api.dispose();
+        console.log('hung up')
+      }
+
       if(props.callData.receiverId == localStorage.getItem(USER_ID)){
       props.socket.emit('CALL_ACCEPTED',{userid: props.callData.callerId})
       }
@@ -21,6 +31,11 @@ const MessageList = (props) => {
         parentNode: document.getElementById('jitsi-section')
       }
       const api = new window.JitsiMeetExternalAPI(url, options);
+      api.addEventListeners({
+        readyToClose: callHungup,
+        // outgoingMessage: outgoingMessageListener
+    });
+
       // props.roomCreated()
     }
   },[props.callData]);

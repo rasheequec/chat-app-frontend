@@ -6,7 +6,7 @@ import MessageHeader from './messageHeader';
 import ChatHeader from './chatHeader';
 import { connect } from 'react-redux';
 import { getChatData, sendMessage, receiveMessage } from '../../actions/chatAction';
-import { initiateCall, receiveCall, createRoom, rejectCall } from '../../actions/callAction';
+import { initiateCall, receiveCall, createRoom, rejectCall, callRejected } from '../../actions/callAction';
 import { initiateSocket } from '../../actions/loginAction';
 import { USER_ID, SOCKET_URL, INITIATE_CALL_EVENT } from '../../utils/constants';
 import io from "socket.io-client";
@@ -92,7 +92,7 @@ const initiateCall = (receiverId, type, receiver) => {
       </Col>
       <Col className="gutter-row" span={19} style={{backgroundColor: '#F5F6FA'}}>
         <MessageHeader data={props.data} activeChatIndex={activeChatIndex} initiateCall={initiateCall}/>
-        <MessageList data={props.data} activeChatIndex={activeChatIndex} sendMessage={sendMessage} callData={props.callData} roomCreated={createRoom} socket={props.socket}/>
+        <MessageList callRejected={props.callRejected} data={props.data} activeChatIndex={activeChatIndex} sendMessage={sendMessage} callData={props.callData} roomCreated={createRoom} socket={props.socket}/>
       </Col>
     </Row>
     </div>
@@ -107,7 +107,8 @@ const mapDispatchToProps = {
   initiateCall,
   receiveCall,
   createRoom,
-  rejectCall
+  rejectCall,
+  callRejected
  };
 const mapStateToProps = state => {
   return {

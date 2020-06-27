@@ -7,20 +7,23 @@ import { USER_ID } from '../../utils/constants';
 import './globalRing.css';
 
 const GlobalRing = props => {
-    const audio = new Audio(RingTone)
-    audio.loop = true;
+    let audio = new Audio(RingTone)
+    audio.loop = true
+    
     // audio.play()
     useEffect(()=>{
-        console.log("ringing change")
-        if(props.call.ringing){
-            console.log("ringing play")
-           audio.play()
-        }
-        else{
-            audio.pause()
-           console.log("ringing pause")
-        }
-    },[props.call])
+        // props.call.ringing ? audio.play() : audio.pause();
+        // if(!props.call.ringing){
+        //     audio.pause()
+        //     console.log('pause1')
+        // }
+        // else{
+        //     audio = new Audio(RingTone)
+        //     audio.loop = true;
+        //     audio.play()
+        //     console.log('pause2')
+        // }
+    },[props.call.ringing])
 
     return(
         <>
