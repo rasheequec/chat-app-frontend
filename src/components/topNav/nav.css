@@ -1,0 +1,9 @@
+#navbar{
+    height: 6vh;
+    background-color: #7d7878;
+    display: flex;
+    flex-direction: row;
+}
+#navbar .profile{
+    align-self: center;
+}

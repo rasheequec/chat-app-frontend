@@ -4,6 +4,7 @@ import { logoutRequest } from '../../actions/loginAction';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import Chat from '../chat/chat';
 import GlobalRing from '../../shared/globalRing/globalRing'
+import Nav from '../topNav/nav'
 const { Header, Content, Footer } = Layout;
 
 const Home = (props) => {
@@ -14,10 +15,11 @@ const logoutHandle = () => {
 }
 return(
     <div>
-        <button onClick={logoutHandle}>Logout</button>
+        {/* <button onClick={logoutHandle}>Logout</button> */}
         {/* <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
     </Header> */}
         <GlobalRing/>
+        <Nav />
         <Chat />
     </div>
 )

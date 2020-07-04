@@ -83,7 +83,7 @@ const initiateCall = (receiverId, type, receiver) => {
 }
 
     return(
-    <div style={{height: "100vh"}}>
+    <div style={{height: "94vh"}}>
         {/* <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}></Row> */}
      <Row>
       <Col className="gutter-row" span={5} style={{backgroundColor: '#F5F6FA'}}> 

@@ -29,7 +29,7 @@ hr{
 #chatList{
     background-color: #040404;
     overflow-x: auto;
-    height: 75vh;
+    height: 72vh;
 }
 #chatList .ant-input-affix-wrapper > input.ant-input{
     background-color: #040404;
@@ -81,7 +81,7 @@ hr{
 #messageList{
     background-color: #232222;
     overflow-x: auto;
-    height: 81vh;
+    height: 76vh;
 }
 #messageList .leftdiv{
     display: flex;
@@ -105,7 +105,7 @@ hr{
 
 
 #message-header{
-    height: 12vh;
+    height: 11vh;
     background-color: #232222;
     display: flex;
     align-items: center;
@@ -131,7 +131,7 @@ hr{
 
 #chat-header{
     background-color: #040404;
-    height: 25vh;
+    height: 22vh;
     display: flex;
     align-items: center;
     justify-content: center;
