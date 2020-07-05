@@ -92,7 +92,7 @@ const initiateCall = (receiverId, type, receiver) => {
       </Col>
       <Col className="gutter-row" span={19} style={{backgroundColor: '#F5F6FA'}}>
         <MessageHeader data={props.data} activeChatIndex={activeChatIndex} initiateCall={initiateCall}/>
-        <MessageList callRejected={props.callRejected} data={props.data} activeChatIndex={activeChatIndex} sendMessage={sendMessage} callData={props.callData} roomCreated={createRoom} socket={props.socket}/>
+        <MessageList rejectCall={props.rejectCall} data={props.data} activeChatIndex={activeChatIndex} sendMessage={sendMessage} callData={props.callData} roomCreated={createRoom} socket={props.socket}/>
       </Col>
     </Row>
     </div>

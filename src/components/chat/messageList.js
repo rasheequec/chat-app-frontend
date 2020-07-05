@@ -16,10 +16,17 @@ const MessageList = (props) => {
     if(props.callData.isRoomCreated && props.callData.onCall && props.callData.roomName){
     
       const callHungup = () => {
-        props.callRejected()
+        props.rejectCall('', localStorage.getItem(USER_ID) == props.callData.receiverId ? props.callData.callerId : props.callData.receiverId, localStorage.getItem(USER_ID) == props.callData.receiverId ? props.callData.receiver : props.callData.caller, props.socket)
         api.dispose();
         console.log('hung up')
       }
+      const endCall = () => {
+        if(api){
+          api.dispose()
+        }
+      }
+
+      props.socket.on('CALL_REJECTED_MESSAGE', endCall)
 
       if(props.callData.receiverId == localStorage.getItem(USER_ID)){
       props.socket.emit('CALL_ACCEPTED',{userid: props.callData.callerId})
