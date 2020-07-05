@@ -35,6 +35,9 @@ const MessageList = (props) => {
       const url = "meet.jit.si"
       const options = {
         roomName: props.callData.roomName,
+        configOverwrite: {
+          startAudioOnly: props.callData.type == 'audio',
+      },
         parentNode: document.getElementById('jitsi-section')
       }
       const api = new window.JitsiMeetExternalAPI(url, options);

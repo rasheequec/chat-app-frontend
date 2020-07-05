@@ -27,8 +27,9 @@ const GlobalRing = props => {
 
     return(
         <>
+        {console.log(props.call)}
         {props.call.ringing && <div id="global-ring">
-            <PhoneOutlined  className="accept" onClick={() => props.createRoom()}/>
+            {localStorage.getItem(USER_ID) !== props.call.callerId && <PhoneOutlined  className="accept" onClick={() => props.createRoom()}/>}
             <PhoneOutlined  className="reject" onClick={() => props.rejectCall('', localStorage.getItem(USER_ID) == props.call.receiverId ? props.call.callerId : props.call.receiverId, localStorage.getItem(USER_ID) == props.call.receiverId ? props.call.caller : props.call.receiver, props.socket)}/>
         </div>}
         </>
